@@ -1,5 +1,5 @@
 ![Licencia](https://img.shields.io/badge/licencia-TheQAHub-green)
-![Cucumber](https://img.shields.io/badge/cucumber-vX.X.X-blue)
+![Cucumber](https://img.shields.io/badge/cucumber-v11.3.0-blue)
 ![Versión](https://img.shields.io/badge/version-Julio_2025-yellowgreen)
 
 # 🥒 Cucumber – Curso desde cero | TheQAHub
