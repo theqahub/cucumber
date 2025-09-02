@@ -1,6 +1,6 @@
-![Licencia](https://img.shields.io/badge/licencia-TheQAHub-green)
+![Licencia](https://img.shields.io/badge/licencia-MIT-green)
 ![Cucumber](https://img.shields.io/badge/cucumber-v11.3.0-blue)
-![Versión](https://img.shields.io/badge/version-Julio_2025-yellowgreen)
+![Versión](https://img.shields.io/badge/version-Septiembre_2025-yellowgreen)
 
 # 🥒 Cucumber – Curso desde cero | TheQAHub
 
@@ -11,15 +11,29 @@ Este repositorio contiene todos los archivos y ejemplos utilizados en los vídeo
 ## 📁 Estructura del Proyecto
 
 ```bash
+/api-server/
+├── data/
+│   └── inventory.json
+├── package.json
+├── package-lock.json
+└── server.js
+
 /features/
 ├── login.feature
 ├── inventory.feature
-└── step-definitions/
-    ├── login.steps.js
-    └── inventory.steps.js
+└── hooks.feature
+
+/hooks.steps.js
+/inventory.steps.js
+/login.steps.js
+/support/
+└── hooks.js
+/utils/
+└── apiHelper.js
 
 /wdio.conf.js
 /package.json
+/package-lock.json
 ```
 
 ---
@@ -27,28 +41,42 @@ Este repositorio contiene todos los archivos y ejemplos utilizados en los vídeo
 ## 📌 Contenido de los Ejemplos
 
 ### 📂 `login.feature` – **Pruebas de inicio de sesión**
-
 Escenarios que validan:
 - Login exitoso.
 - Campos vacíos (username/password).
 - Usuario bloqueado.
 
-Los mensajes de error se validan mediante los steps definidos en `login.steps.js`.
+Definiciones en `login.steps.js`.
+
+---
 
 ### 📂 `inventory.feature` – **Validación de la pantalla de inventario**
-
 Escenarios que verifican:
-- Que el usuario acceda correctamente al dashboard tras hacer login.
-- Que se rendericen los elementos esperados.
+- Acceso correcto al dashboard tras login.
+- Renderizado de los elementos esperados.
+
+Definiciones en `inventory.steps.js`.
+
+---
+
+### 📂 `hooks.feature` – **Uso de Hooks en Cucumber**
+Escenarios que muestran cómo inicializar y limpiar estado en pruebas.
+
+Definiciones en `hooks.steps.js` y `support/hooks.js`.
+
+---
+
+### 📂 `api-server` – **Mock API para pruebas**
+Servidor Express con un endpoint `/inventory` para simular datos de inventario en pruebas de API.
 
 ---
 
 ## 🧪 Requisitos
 
 - Tener **Node.js** instalado.
-- WebdriverIO, Cucumber y sus dependencias configuradas.
+- WebdriverIO, Cucumber y dependencias configuradas.
 
-Instalación (si ya no están instaladas):
+Instalación:
 
 ```bash
 npm install
@@ -79,17 +107,19 @@ Suscríbete y activa la campanita 🔔 para no perderte nuevas lecciones.
 - Aprender Cucumber desde cero.
 - Entender el enfoque BDD (Behavior Driven Development).
 - Automatizar pruebas de interfaz usando WebdriverIO.
+- Integrar pruebas de UI y API en un mismo proyecto.
 - Escribir escenarios comprensibles y mantenibles.
 
 ---
 
 ## 📚 Licencia
 
-MIT – Libre para usar, compartir y mejorar. Si reutilizas este contenido, menciona o enlaza a TheQAHub como fuente.
+MIT – Libre para usar, compartir y mejorar.  
+Si reutilizas este contenido, menciona o enlaza a TheQAHub como fuente.
 
 ---
 
 ## 💬 Autor
 
 Creado por Diego – [TheQAHub](https://www.theqahub.es/)  
-Encuéntrame en Instagram, YouTube y más, compartiendo contenido sobre Testing y QA.
+Encuéntrame en Instagram, YouTube y más, compartiendo contenido sobre Testing y QA.  
