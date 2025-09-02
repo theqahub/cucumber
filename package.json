@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start:api": "node ./api-server/server.js",
     "test": "wdio run wdio.conf.js",
-    "wdio": "wdio run ./wdio.conf.js"
+    "dev": "concurrently \"npm run start:api\" \"npm run test\"",
+    "test:smoke": "wdio run wdio.conf.js --cucumberOpts.tagExpression='@inventory and @smoke'",
+    "test:not-manual": "wdio run wdio.conf.js --cucumberOpts.tagExpression='@inventory and not @manual and not @ignore'",
+    "test:fast": "wdio run wdio.conf.js --cucumberOpts.tagExpression='@inventory and @fast'",
+    "test:cart": "wdio run wdio.conf.js --cucumberOpts.tagExpression='@inventory and @cart'",
+    "test:demo": "wdio run wdio.conf.js --cucumberOpts.tagExpression='@inventory and @demo and not @manual and not @ignore'"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +22,12 @@
     "@wdio/cli": "^9.15.0",
     "@wdio/cucumber-framework": "^9.15.0",
     "@wdio/local-runner": "^9.15.0",
-    "@wdio/spec-reporter": "^9.15.0"
+    "@wdio/spec-reporter": "^9.15.0",
+    "concurrently": "^9.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
   }
 }
